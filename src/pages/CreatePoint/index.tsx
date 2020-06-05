@@ -11,7 +11,7 @@ import axios from 'axios';
 import './styles.css';
 import logo from '../../assets/logo.svg';
 
-import PointCreationSucceeded from '../PointCreationSucceeded';
+import PointCreationSucceeded from './PointCreationSucceeded';
 
 interface Item {
   id: number;
