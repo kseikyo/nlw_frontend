@@ -1,3 +1,5 @@
+# Ecoleta
+
 <p align="center">
   <a href="LICENSE" style="text-decoration: none">
     <img alt="License" src="https://img.shields.io/github/license/kseikyo/nlw_frontend?color=34CB79" />
