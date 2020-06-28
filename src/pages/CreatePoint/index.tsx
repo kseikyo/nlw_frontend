@@ -60,6 +60,16 @@ const CreatePoint = () => {
   }, []);
 
   useEffect(() => {
+    if(hasSubmited) {
+      let delay = 2000;
+      
+      setTimeout(function() {
+        history.push('/');
+      }, delay);
+    }
+  }, [hasSubmited, history]);
+
+  useEffect(() => {
     axios.get<IBGEUFResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then(res => {
       const ufInitials = res.data.map(uf => uf.sigla);
 
@@ -150,15 +160,12 @@ const CreatePoint = () => {
     if(!!res.data && res.data.message !== "File is bigger than 2MB.") {
       setHasSubmited(true);
       
-      let delay = 2000;
-      
-      setTimeout(function() {
-        history.push('/');
-      }, delay);
     } else if(!!res.data) {
       alert("Arquivo muito grande. Por favor adicione uma imagem de até 2MB.");
-    } else {
+    } else if(!selectedFile) {
       alert("Por favor adicione uma imagem do estabelecimento de até 2MB.");
+    } else {
+      console.log(res);
     }
 
   }
@@ -166,7 +173,7 @@ const CreatePoint = () => {
 
   return (
     <div id="page-create-point">
-      { hasSubmited ? <PointCreationSucceeded /> : null }
+      { hasSubmited && <PointCreationSucceeded /> }
       <header>
         <img src={logo} alt="Ecoleta" />
         <Link to="/">
