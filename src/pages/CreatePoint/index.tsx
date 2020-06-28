@@ -61,7 +61,7 @@ const CreatePoint = () => {
 
   useEffect(() => {
     if(hasSubmited) {
-      let delay = 2000;
+      let delay = 5000;
       
       setTimeout(function() {
         history.push('/');
