@@ -145,18 +145,21 @@ const CreatePoint = () => {
       data.append('image', selectedFile);
     }
 
-    console.log(data);
+    const res = await api.post('/points', data).catch(err => err);
 
-    await api.post('/points', data);
-    
-
-    setHasSubmited(true);
-    
-    let delay = 2000;
-    
-    setTimeout(function() {
-      history.push('/');
-    }, delay);
+    if(!!res.data && res.data.message !== "File is bigger than 2MB.") {
+      setHasSubmited(true);
+      
+      let delay = 2000;
+      
+      setTimeout(function() {
+        history.push('/');
+      }, delay);
+    } else if(!!res.data) {
+      alert("Arquivo muito grande. Por favor adicione uma imagem de até 2MB.");
+    } else {
+      alert("Por favor adicione uma imagem do estabelecimento de até 2MB.");
+    }
 
   }
 
@@ -244,7 +247,7 @@ const CreatePoint = () => {
                 id="uf" 
                 onChange={handleSelectUf}
               >
-                <option value="0">Selecione uma UF</option>
+                <option value="">Selecione uma UF</option>
                 {
                   ufs.map(uf => (
                     <option key={uf} value={uf}>{uf}</option>
@@ -261,7 +264,7 @@ const CreatePoint = () => {
                 value={selectedCity}
                 onChange={handleSelectCity}
               >
-                <option value="0">Selecione uma cidade</option>
+                <option value="">Selecione uma cidade</option>
                 {
                   cities.map(city => (
                     <option key={city} value={city}>{city}</option>
