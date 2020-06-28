@@ -4,7 +4,7 @@ import './styles.css';
 
 const PointCreationSucceeded = () => {
   return (
-    <div id="modal">
+    <div id="modal" style={{opacity: "86%!important"}}>
         <FiCheckCircle color="#34CB79" size={70}/>
         <strong>
           <h1>
