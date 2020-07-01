@@ -37,8 +37,7 @@
 
 ## 🔖 Design
 
-This application's design was made by the [Rocketseat](https://rocketseat.com.br/) team and made available during the NLW or Next Level Week, you can currently check the prototype [here](https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/?viewer=1&node-id=)
-
+This application's design was made by the [Rocketseat](https://rocketseat.com.br/) team and made available during the NLW or Next Level Week on [figma](https://www.figma.com/)
 ## 💻 Technologies
 
 The project was built using the following technologies:
